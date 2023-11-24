@@ -1,10 +1,11 @@
-import {Link} from "react-router-dom";
-import { Div } from '../components/box';
+import { Div, P } from '../components/box';
 function HomePage() {
     
     return (
         <Div backgroundColor = "none" border = "none" height = "calc(100vh - 40px)">
-            <p>HomePage입니다.</p>
+            <P>버르 장례식</P>
+            <br/>
+            <P>서비스 설명</P>
         </Div>
     );
 }

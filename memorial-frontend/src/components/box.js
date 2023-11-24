@@ -21,3 +21,10 @@ export const Menu = styled.label `
         color : yellow;
     }
 `;
+
+export const P = styled.label `
+    font-size: ${props => props.fontSize || "70px"};
+    font-weight: ${props => props.fontWeight || " bold"};
+    display: ${props => props.display || "block"};
+    white-space: pre-line;
+`;

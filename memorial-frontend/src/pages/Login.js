@@ -1,11 +1,11 @@
-import { auth } from '../fbase';
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { useContext, useState } from 'react';
-import { UserContext } from '../contexts/userContext';
+import {auth} from '../fbase';
+import {GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
+import {useContext, useState} from 'react';
+import {UserContext} from '../contexts/userContext';
 // import Test from './Test';
 
 function Login() {
-  const [userData, setUserData, updateData] = useContext(UserContext);
+    const [userData, setUserData, updateData] = useContext(UserContext);
 
   function handleGoogleLogin() {
     const provider = new GoogleAuthProvider(); // provider를 구글로 설정
@@ -22,13 +22,17 @@ function Login() {
       });
   }
 
-  return (
-    <div>
-      {/* <Test></Test> */}
-      <button onClick={handleGoogleLogin}>Login</button>
-      {userData ? userData.displayName : null}
-    </div>
-  );
+    return (
+        <div>
+            {/* <Test></Test> */}
+            <button onClick={handleGoogleLogin}>Login</button>
+            {
+                userData
+                    ? userData.displayName
+                    : null
+            }
+        </div>
+    );
 }
 
 export default Login;
