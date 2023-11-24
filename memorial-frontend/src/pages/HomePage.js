@@ -5,7 +5,7 @@ function HomePage() {
     const navigate = useNavigate();
     useEffect (() => {
         if(localStorage.getItem('emailVerified') !== 'true'){
-            navigate
+            navigate("/");
         }
     },[])
 
