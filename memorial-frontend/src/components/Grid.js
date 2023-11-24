@@ -1,37 +1,26 @@
-import React, { useEffect, useState } from "react";
+import {useEffect, useState} from 'react';
 import DataBox from '../components/DataBox';
 import axios from 'axios';
 
 function Grid() {
-    const [items, setData] = useState([]);
+    const [datas, setDatas] = useState([]);
 
-    const item = {
-        title: "",
-        content: "",
-        startDate: "",
-        endDate: ""
-    };
-    const [userInfo, setUserInfo] = useState(item);
-
-    const updateUserInfo = (newUserInfo) => {
-        setUserInfo(newUserInfo);
-    };
+    const item = [1, 2, 3, 4];
 
     useEffect(() => {
         axios
             .get("http://172.17.200.74:8080/api/v1/posting/all")
             .then((response) => {
-                setData(response.data);
-                setUserInfo({
-                    title: response.data.title,
-                    content: response.data.content,
-                    startDate: response.data.startDate,
-                    endDate: response.data.endDate
-                });
+                // console.log("response: " + JSON.stringify(response.data.data));
+                setDatas(response.data.data);
+                // setUserInfo((prevUserInfo) => ({     name: response.data.data.name,     age:
+                // response.data.data.age,     part: response.data.data.part,     imgURL:
+                // response.data.data.imgURL })); console.log(datas.length);
+                console.log(datas[2].imageUrl);
             })
             .catch((error) => console.log("error: " + error));
-    }, []);
 
+    }, []);
     return (
         <div
             style={{
@@ -42,11 +31,7 @@ function Grid() {
                 backgroundColor: "",
                 boxShadow: "border-box"
             }}>
-            {
-                items.map((items, key) => (
-                    <DataBox item={items} key={key}></DataBox>
-                ))
-            }
+            {datas.map((item, key) => (<DataBox item={item} key={key}></DataBox>))}
         </div>
     );
 }

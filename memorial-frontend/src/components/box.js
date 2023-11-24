@@ -13,6 +13,7 @@ export const Div = styled.div `
     color: ${props => props.backgroundColor || " white"};
     padding : ${props => props.padding || "10px"};
     margin : ${props => props.margin || "0px"};
+    position: ${props => props.position || ''};
 
 `;
 
