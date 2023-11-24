@@ -10,8 +10,8 @@ export const UserContext = createContext();
 export default function UserProvider({ children }) {
 
   const [userData, setUserData] = useState({});
-  console.log(userData)
   console.log(userData.uid)
+  console.log(userData.name)
 
 //   /* 서버로부터 유저 데이터 받아오는 함수 */
 //   const getData = async () => {
