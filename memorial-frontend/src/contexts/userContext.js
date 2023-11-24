@@ -9,9 +9,9 @@ export const UserContext = createContext();
 /* 유저 데이터 프로바이더 생성 */
 export default function UserProvider({ children }) {
 
-  const [userData, setUserData] = useState({});
-  console.log(userData.uid)
-  console.log(userData.name)
+  const [logInData, setLogInData] = useState({});
+  console.log(logInData.uid)
+  console.log(logInData.name)
 
 //   /* 서버로부터 유저 데이터 받아오는 함수 */
 //   const getData = async () => {
@@ -27,7 +27,7 @@ export default function UserProvider({ children }) {
 
 
   /* 프로바이더로 넘겨줄 변수 구성 */
-  const value = useMemo(() => [userData, setUserData], [userData, setUserData]);
+  const value = useMemo(() => [logInData, setLogInData], [logInData, setLogInData]);
 
   return (
     <UserContext.Provider value={value}>{children}</UserContext.Provider>

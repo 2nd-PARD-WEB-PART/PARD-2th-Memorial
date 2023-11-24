@@ -5,13 +5,13 @@ import {UserContext} from '../contexts/userContext';
 // import Test from './Test';
 
 function Login() {
-    const [userData, setUserData, updateData] = useContext(UserContext);
+  const [logInData, setLogInData] = useContext(UserContext);
 
   function handleGoogleLogin() {
     const provider = new GoogleAuthProvider(); // provider를 구글로 설정
     signInWithPopup(auth, provider) // popup을 이용한 signup
       .then((data) => {
-        setUserData({
+        setLogInData({
             uid: data.user.uid,
             name : data.user.displayName,
         }); // user data 설정
@@ -22,17 +22,13 @@ function Login() {
       });
   }
 
-    return (
-        <div>
-            {/* <Test></Test> */}
-            <button onClick={handleGoogleLogin}>Login</button>
-            {
-                userData
-                    ? userData.displayName
-                    : null
-            }
-        </div>
-    );
+  return (
+    <div>
+      {/* <Test></Test> */}
+      <button onClick={handleGoogleLogin}>Login</button>
+      {logInData ? logInData.displayName : null}
+    </div>
+  );
 }
 
 export default Login;
