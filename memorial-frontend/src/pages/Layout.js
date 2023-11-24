@@ -16,7 +16,7 @@ function Layout() {
         <div>
             <Div justifyContent="space-between" height="40px" bgColor="black">
                 <Div justifyContent="start" height="40px">
-                <Link to="/" style={linkStyle} activeStyle={hoverStyle}>
+                <Link to="/HomePage" style={linkStyle} activeStyle={hoverStyle}>
                     <Menu>천국 말고 홈화면으로 돌아가시기</Menu>
                 </Link>
                 </Div>

@@ -28,8 +28,8 @@ export const P = styled.p `
     font-weight: ${props => props.fontWeight || "bold"};
     /* display: ${props => props.display || "block"}; */
     white-space: pre-wrap;
-    box-sizing : ${props => props.border || "border-box"};
-    margin : 0;
+    box-sizing : ${props => props.boxSizing || "border-box"};
+    margin : ${props => props.margin || "0px"};
 
 `;
 
