@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { UserContext } from '../contexts/userContext';
 import styled from 'styled-components';
+import axios from 'axios';
 
 // div styled-component
 const Div = styled.div`
@@ -202,19 +204,71 @@ const Button = styled.button`
 
 function AddPage() {
     const [imageSrc, setImageSrc] = useState(null);
+    const [previewSrc, setPreviewSrc] = useState(null);
+    const [logInData, setLogInData] = useContext(UserContext);
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
+    const [startDate, setStartDate] = useState('');
 
     const onUpload = (e) => {
         const file = e.target.files[0];
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
+        setImageSrc(file); // File 객체를 직접 저장
+        setPreviewSrc(URL.createObjectURL(file)); // 미리보기를 위한 URL을 저장
+    };
 
-        reader.onload = () => {
-            setImageSrc(reader.result || null); // 파일의 컨텐츠
+    // 파일 업로드를 처리하는 별도의 함수
+    const uploadFile = async (postingId) => {
+        const fileData = new FormData();
+        fileData.append('multipartFile', imageSrc);
+
+        try {
+            const fileResponse = await axios.post(
+                `http://172.17.200.74:8080/api/v1/image?postingId=${postingId}`,
+                fileData,
+                {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    },
+                }
+            );
+            console.log(fileResponse);
+            const imageUrl = fileResponse.data.url;
+            console.log(imageUrl);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    const onSubmit = async (event) => {
+        event.preventDefault();
+
+        // 데이터 전송
+        const data = {
+            title: title,
+            content: content,
+            authorId: logInData.uid ? logInData.uid.toString() : '',
+            startDate: new Date(startDate).toISOString(),
         };
+
+        try {
+            const response = await axios.post('http://172.17.200.74:8080/api/v1/posting', data, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            console.log(response);
+
+            // 데이터 전송이 성공하면, 파일 업로드를 시작
+            console.log(response.data.id);
+            uploadFile(response.data.data.id);
+        } catch (error) {
+            console.error(error);
+        }
     };
     return (
         <Div width="100%" height="1000px" margin="0 auto">
-            <Form width="100%" display="flex">
+            <Form width="100%" display="flex" onSubmit={onSubmit}>
                 {/*Column 1*/}
                 <Div width="35%" height="1000px">
                     {/*InnerRow1*/}
@@ -245,13 +299,13 @@ function AddPage() {
                             margin="0 auto"
                             overflow="hidden"
                         >
-                            {!imageSrc && (
+                            {!previewSrc && (
                                 <P textAlign="center" margin="0">
                                     이미지를 등록해주세요
                                 </P>
                             )}
-                            {imageSrc && (
-                                <Img width="100%" height="100%" objectFit="cover" src={imageSrc} alt="고인의 사진" />
+                            {previewSrc && (
+                                <Img width="100%" height="100%" objectFit="cover" src={previewSrc} alt="고인의 사진" />
                             )}
                         </Label>
                     </Div>
@@ -260,7 +314,6 @@ function AddPage() {
                 <Div width="65%" height="1000px" display="flex" alignItems="center" justifyContent="center">
                     {/*InnerMainRow*/}
                     <Div width="90%" height="500px" display="block" textAlign="center">
-                        {' '}
                         {/*InnerRow1*/}
                         <Div width="100%" height="100px" marginBottom="10px">
                             <Input
@@ -271,10 +324,12 @@ function AddPage() {
                                 height="100%"
                                 type="text"
                                 maxLength="15"
-                                placeholder="장례식 제목 작성하기 (15자)"
+                                placeholder="*버리고 싶은 나의 모습과 나의 이름을 작성해주세요. (예. 손톱 무는 홍길동"
                                 fontSize="30px"
                                 fontWeight="400"
                                 color="#838383"
+                                value={title}
+                                onChange={(e) => setTitle(e.target.value)}
                             />
                         </Div>
                         {/*InnerRow 2*/}
@@ -290,24 +345,11 @@ function AddPage() {
                                 fontSize="30px"
                                 fontWeight="400"
                                 color="#838383"
+                                value={startDate}
+                                onChange={(e) => setStartDate(e.target.value)}
                             />
                         </Div>
                         {/*InnerRow 3*/}
-                        <Div width="100%" height="80px" marginBottom="15px">
-                            <Input
-                                borderRadius="38px"
-                                border="none"
-                                backgroundColor="#F0F0F0"
-                                width="90%"
-                                height="80px"
-                                type="datetime-local"
-                                placeholder="장례식 마감일"
-                                fontSize="30px"
-                                fontWeight="400"
-                                color="#838383"
-                            />
-                        </Div>
-                        {/*InnerRow 4*/}
                         <Div width="100%" height="200px" marginBottom="10px">
                             <Textarea
                                 borderRadius="38px"
@@ -315,13 +357,15 @@ function AddPage() {
                                 width="90%"
                                 height="100%"
                                 maxLength="500"
-                                placeholder="유언장 작성하기 (500자)"
+                                placeholder="*내가 버리고 싶은 버릇에 대한 스토리와 찾아와준 조문객들에게 전하고 싶은 말을 작성해주세요."
                                 fontSize="30px"
                                 fontWeight="400"
                                 color="#838383"
+                                value={content}
+                                onChange={(e) => setContent(e.target.value)}
                             />
                         </Div>
-                        {/*InnerRow 5*/}
+                        {/*InnerRow 4*/}
                         <Div width="96%" height="200px" display="flex" justifyContent="flex-end">
                             <Button
                                 display="flex"
@@ -337,6 +381,7 @@ function AddPage() {
                                 fontSize="30px"
                                 fontWeight="600"
                                 margin="20px 0"
+                                cursor="pointer"
                             >
                                 등록하기
                             </Button>
