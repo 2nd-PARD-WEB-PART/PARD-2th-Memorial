@@ -11,7 +11,8 @@ export const Div = styled.div `
     box-sizing : ${props => props.boxSizing || "border-box"};
     background-color: ${props => props.backgroundColor || " black"};
     color: ${props => props.backgroundColor || " white"};
-    padding : ${props => props.padding || "10px"}
+    padding : ${props => props.padding || "10px"};
+    margin : ${props => props.margin || "0px"};
 
 `;
 
