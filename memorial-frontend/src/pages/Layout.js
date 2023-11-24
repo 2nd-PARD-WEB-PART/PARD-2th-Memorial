@@ -7,6 +7,7 @@ function Layout() {
         textDecoration: 'none', // 링크의 밑줄을 없애는 스타일
         color: 'white', // 링크의 기본 색상 사용
         transition: 'color 0.3s ease',
+
     };
     const hoverStyle = {
         color: 'blue', // hover 시의 색상
