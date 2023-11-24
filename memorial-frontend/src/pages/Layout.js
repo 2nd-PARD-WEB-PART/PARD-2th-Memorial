@@ -6,9 +6,9 @@ function Layout() {
     return (
         <div>
             <Div justifyContent = "start" height = "40px">
-                <Link to="/"><Menu>HomePage</Menu></Link>
-                <Link to="/AddPage"><Menu>AddPage</Menu></Link>
-                <Link to="/ViewPage"><Menu>ViewPage</Menu></Link>
+                <Link to="/"><Menu>버르장 온라인 장례식</Menu></Link>
+                <Link to="/AddPage"><Menu>장례식 신청하기</Menu></Link>
+                <Link to="/ViewPage"><Menu>남의 버릇 구경가기</Menu></Link>
             </Div>
 
             <main>
