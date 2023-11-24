@@ -14,6 +14,7 @@ export const Div = styled.div `
     padding : ${props => props.padding || "10px"};
     margin : ${props => props.margin || "0px"};
     position: ${props => props.position || ''};
+    background-image: ${props => props.backgroundImage || ''};
 
 `;
 
@@ -21,7 +22,12 @@ export const Menu = styled.label `
     margin : ${props => props.margin || "40px"};
 
     &:hover{
-        color : yellow;
+        color : black;
+        font-weight: bold;
+        border : 1px solid white;
+        background-color: white;
+        border-radius: 5px;
+        padding : 5px;
     }
 `;
 
@@ -42,10 +48,17 @@ export const Button = styled.button `
     color : white;
     height : ${props => props.height || "50px"};
     width : 200px;
-    border-radius: 10px;
+    border-radius: 20px;
     font-size : ${props => props.fontSize || "20px"};;
 `;
 
 export const Empty = styled.div `
+    text-align: center;
     height : ${props => props.height || "100px"};
+`;
+
+export const Img = styled.img `
+    width : 40%;
+    margin-top : 50px;
+    margin-bottom: 50px;
 `;
