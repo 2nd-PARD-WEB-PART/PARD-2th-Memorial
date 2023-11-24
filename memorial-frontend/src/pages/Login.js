@@ -3,18 +3,7 @@ import {GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
 import {useContext, useState} from 'react';
 import {UserContext} from '../contexts/userContext';
 import styled from 'styled-components';
-
-const Div = styled.div `
-    display: ${props => props.display || "flex"};
-    justify-content: ${props => props.justifyContent || "center"};
-    align-items: ${props => props.alignItems || "center"};
-    width : ${props => props.width || "100%"};
-    height : ${props => props.height || "100px"};
-    border : ${props => props.border || "1px solid black"};
-    box-sizing : ${props => props.border || "border-box"};
-    background-color: ${props => props.backgroundColor || "white"};
-    color: ${props => props.backgroundColor || " white"};
-`;
+import { Button, Div, P, Empty } from '../components/box';
 
 
 function Login() {
@@ -38,9 +27,21 @@ function Login() {
   }
 
   return (
-    <Div>
-      <button onClick={handleGoogleLogin}>Login</button>
+
+    <Div
+    backgroundColor="none"
+    border="none"
+    height="calc(100vh - 40px)"
+    flexDirection="column">
+    <Div backgroundColor="none" border="none" height="50%" flexDirection="column">
+        <P height="20px">버르 장례식</P>
+        <P fontSize="20px" height="30px">당신의 버릇이 잘 돌아가실 수 있도록 장례를 돕겠습니다.</P>
+        <Empty></Empty>
+        {/* <Link to="./AddPage"> */}
+        <Button onClick={handleGoogleLogin}>Google 로그인</Button>
+        {/* </Link> */}
     </Div>
+</Div>
   );
 }
 

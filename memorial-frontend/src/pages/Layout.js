@@ -15,11 +15,12 @@ function Layout() {
     return (
         <div>
             <Div justifyContent="space-between" height="40px" bgColor="black">
-
+                <Div justifyContent="start" height="40px">
                 <Link to="/" style={linkStyle} activeStyle={hoverStyle}>
                     <Menu>천국 말고 홈화면으로 돌아가시기</Menu>
                 </Link>
-                <Div height="40px" >
+                </Div>
+                <Div height="40px" justifyContent="end">
                     <Link to="/AddPage" style={linkStyle}>
                         <Menu>장례식 등록하기</Menu>
                     </Link>
