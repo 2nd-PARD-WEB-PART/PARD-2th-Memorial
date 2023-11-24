@@ -276,12 +276,12 @@ function AddPage() {
     };
     const dateInputRef = useRef();
     return (
-        <Div width="100%" height="1000px" margin="0 auto">
+        <Div width="100%" height="750px" margin="0 auto">
             <Form width="100%" display="flex" onSubmit={onSubmit}>
                 {/*Column 1*/}
-                <Div width="35%" height="1000px">
+                <Div width="35%" height="750px">
                     {/*InnerRow1*/}
-                    <Div width="100%" height="1000px" alignItems="center" display="flex" paddingLeft="50px">
+                    <Div width="100%" height="750px" alignItems="center" display="flex" paddingLeft="50px">
                         <Input
                             display="none"
                             id="file"
@@ -321,7 +321,7 @@ function AddPage() {
                     </Div>
                 </Div>
                 {/*Column 2*/}
-                <Div width="65%" height="1000px" display="flex" alignItems="center" justifyContent="center">
+                <Div width="65%" height="750px" display="flex" alignItems="center" justifyContent="center">
                     {/*InnerMainRow*/}
                     <Div width="90%" height="500px" display="block" textAlign="center">
                         {/*첫 헤더*/}
