@@ -1,6 +1,13 @@
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {Div, P, Button, Empty} from '../components/box';
+import { useEffect } from 'react';
 function HomePage() {
+    const navigate = useNavigate();
+    useEffect (() => {
+        if(localStorage.getItem('emailVerified') !== 'true'){
+            navigate
+        }
+    },[])
 
     return (
         <Div
