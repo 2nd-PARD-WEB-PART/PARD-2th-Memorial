@@ -16,6 +16,8 @@ function Login() {
             name : data.user.displayName,
         }); // user data 설정
         console.log(data) // console로 들어온 데이터 표시
+        localStorage.setItem("uid", logInData.uid);
+        localStorage.setItem("name", logInData.name);
       })
       .catch((err) => {
         console.log(err);
