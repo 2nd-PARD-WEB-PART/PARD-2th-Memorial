@@ -32,7 +32,7 @@ function Login() {
 
   useEffect(() => {
     if(logInData.emailVerified){
-        navigate("/");
+        navigate("/HomePage");
     }
   },[logInData])
 
