@@ -1,8 +1,20 @@
+import React from 'react';
+import {Route, Routes } from 'react-router-dom';
+import Layout from './pages/Layout';
+import HomePage from './pages/HomePage';
+import AddPage from './pages/AddPage';
+import ViewPage from './pages/ViewPage';
 function App() {
 
   // case 현중
   return (
-    <p>App.js입니다.</p>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index="index" element={<HomePage />} />
+        <Route path="/AddPage" element={<AddPage />} />
+        <Route path = "/ViewPage" element = {<ViewPage/>}/>
+      </Route>
+    </Routes>
   );
 }
 
