@@ -24,7 +24,7 @@ function Layout() {
                     <Link to="/AddPage" style={linkStyle}>
                         <Menu>장례식 등록하기</Menu>
                     </Link>
-                    <Link to="/ViewPage" style={linkStyle}>
+                    <Link to="/MyPage" style={linkStyle}>
                         <Menu>마이페이지</Menu>
                     </Link>
                 </Div>
