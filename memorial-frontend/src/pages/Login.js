@@ -2,7 +2,20 @@ import {auth} from '../fbase';
 import {GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
 import {useContext, useState} from 'react';
 import {UserContext} from '../contexts/userContext';
-// import Test from './Test';
+import styled from 'styled-components';
+
+const Div = styled.div `
+    display: ${props => props.display || "flex"};
+    justify-content: ${props => props.justifyContent || "center"};
+    align-items: ${props => props.alignItems || "center"};
+    width : ${props => props.width || "100%"};
+    height : ${props => props.height || "100px"};
+    border : ${props => props.border || "1px solid black"};
+    box-sizing : ${props => props.border || "border-box"};
+    background-color: ${props => props.backgroundColor || "white"};
+    color: ${props => props.backgroundColor || " white"};
+`;
+
 
 function Login() {
   const [logInData, setLogInData] = useContext(UserContext);
@@ -25,11 +38,9 @@ function Login() {
   }
 
   return (
-    <div>
-      {/* <Test></Test> */}
+    <Div>
       <button onClick={handleGoogleLogin}>Login</button>
-      {logInData ? logInData.displayName : null}
-    </div>
+    </Div>
   );
 }
 
