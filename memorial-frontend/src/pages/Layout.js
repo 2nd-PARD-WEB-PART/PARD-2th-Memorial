@@ -1,16 +1,15 @@
 import {Link} from "react-router-dom";
-import {Outlet} from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import { Div } from '../components/box';
 
 function Layout() {
     return (
         <div>
-            <div>
+            <Div>
                 <Link to="/">HomePage</Link>
-                <br/>
                 <Link to="/AddPage">AddPage</Link>
-                <br/>
                 <Link to="/ViewPage">ViewPage</Link>
-            </div>
+            </Div>
 
             <main>
                 <Outlet/>
