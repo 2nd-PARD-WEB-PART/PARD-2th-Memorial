@@ -41,7 +41,7 @@ export const Button = styled.button `
     height : ${props => props.height || "50px"};
     width : 200px;
     border-radius: 10px;
-    font-size : 20px;
+    font-size : ${props => props.fontSize || "20px"};;
 `;
 
 export const Empty = styled.div `

@@ -13,8 +13,8 @@ function App() {
     return (
         <UserProvider>
             <Routes>
+                <Route index="index" element={<Login />}/>
                 <Route path="/" element={<Layout />}>
-                    <Route index="index" element={<Login />}/>
                     <Route path="/HomePage" element={<HomePage/>}/>
                     <Route path="/AddPage" element={<AddPage />}/>
                     <Route path="/ViewPage" element={<ViewPage/>}/>

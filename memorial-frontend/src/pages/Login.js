@@ -21,9 +21,7 @@ function Login() {
             emailVerified : data._tokenResponse.emailVerified,
         }); // user data 설정
         console.log(data) // console로 들어온 데이터 표시
-        localStorage.setItem("uid", logInData.uid);
-        localStorage.setItem("name", logInData.name);
-        localStorage.setItem("emailVerified", logInData.emailVerified);
+        
       })
       .catch((err) => {
         console.log(err);
@@ -32,6 +30,9 @@ function Login() {
 
   useEffect(() => {
     if(logInData.emailVerified){
+        localStorage.setItem("uid", logInData.uid);
+        localStorage.setItem("name", logInData.name);
+        localStorage.setItem("emailVerified", logInData.emailVerified);
         navigate("/HomePage");
     }
   },[logInData])
