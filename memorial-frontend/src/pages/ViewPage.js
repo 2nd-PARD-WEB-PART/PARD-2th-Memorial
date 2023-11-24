@@ -92,7 +92,12 @@ function ViewPage() {
             <Div flexDirection="column" width="80%" height="90vh">
                 <Div height="20%" fontSize="80px" >{userData.data.title}</Div>
                 <Div height="70%">
-                    <Div width="30%">유언장</Div>
+                    <Div width="30%">
+                        <Img></Img>
+                        <Div>
+                            <Button   Button name="comment2" onClick={handleCommentUpload} >댓글 작성</Button>
+                        </Div>
+                    </Div>
                     <Div width="70%" flexDirection="column" alignItems="end">
                         <Div width="80%" backgroundColor="#F0F0F0" borderRadius="20px" flexDirection="column" >
                             <Div height="10%" width="95%" backgroundColor="#F0F0F0" color="black" justifyContent="start">
@@ -121,7 +126,7 @@ function ViewPage() {
                                         <Input type="text" height="100%" placeholder="댓글 달기.." name="inputComment" value={curComment} backgroundColor="#F0F0F0" onChange={handleCommentChange} />
                                 </Div>
                                 <Div width="15%" justifyContent="end" alignItems="center" backgroundColor="#F0F0F0" >
-                                    <Button   Button name="comment2" onClick={handleCommentUpload} >댓글 작성</Button>
+                                    <Button name="comment2" onClick={handleCommentUpload} >댓글 작성</Button>
                                 </Div>
                             </Div>
                         </Div>
