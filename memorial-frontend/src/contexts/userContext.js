@@ -12,6 +12,7 @@ export default function UserProvider({ children }) {
   const [logInData, setLogInData] = useState({});
   console.log(logInData.uid)
   console.log(logInData.name)
+  console.log(logInData.emailVerified)
 
 //   /* 서버로부터 유저 데이터 받아오는 함수 */
 //   const getData = async () => {
