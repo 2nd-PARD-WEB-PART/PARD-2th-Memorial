@@ -87,7 +87,10 @@ function ViewPage() {
     getData();
   }, [commentChanged]);
 
-
+  const startDate = new Date(userData.startDate);
+  // 월과 일 추출
+  const month = startDate.getMonth() + 1; // getMonth()는 0부터 시작하므로 +1 해줍니다.
+  const day = startDate.getDate();
 
   const handleCommentUpload = async (e) => {
     const newComment = {
@@ -195,7 +198,7 @@ const setMessageClickedTrue = async (e) => {
                         <Div width="80%" backgroundColor="#F0F0F0" borderRadius="20px" flexDirection="column" >
                             <Div height="10%" width="95%" backgroundColor="#F0F0F0" color="black" justifyContent="start" borderBottom="1px solid black" >
                                 <Div width="20%" fontSize="15px" backgroundColor="#F0F0F0" >조문 종료 기간</Div>
-                                <Div width="20%" fontSize="15px" backgroundColor="#F0F0F0">{userData.startDate}</Div>
+                                <Div width="20%" fontSize="15px" backgroundColor="#F0F0F0">{month}월 {day+3}일</Div>
                             </Div>
                             <Div flexDirection="column" height="80%" width="95%" backgroundColor="#F0F0F0" overflow="scroll" justifyContent="start" borderBottom="1px solid black" >
                                 
