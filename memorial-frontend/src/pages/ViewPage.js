@@ -4,7 +4,7 @@ import { UserContext } from "../contexts/userContext";
 import axios from "axios";
 import flower from "../assets/flower.png"
 import OverImage from '../assets/over.png';
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Div = styled.div `
 display: ${props => props.display || "flex"};
@@ -179,12 +179,14 @@ const setMessageClickedTrue = async (e) => {
                                 zIndex: 2,
                                 opacity: 0.7
                             }}>
+                                
                             <Div backgroundColor="black" color="white" fontSize="32px" height="20%" margin="20px 0 0 0">유언장</Div>
-                            <Div backgroundColor="black" color="white" fontSize="24px" height="80%">{userData.content}</Div>
+                            <Div backgroundColor="black" color="white" fontSize="24px" height="80%" width="80%">{userData.content}</Div>
                         </Div>
                         </div>}
                     
                         <Div height="30%">
+                            <Link to="/editPage"><Button name="comment2" onClick={setMessageClickedFalse} >수정</Button></Link>
                             <Button name="comment2" onClick={setMessageClickedFalse} >영정 사진</Button>
                             <Button name="comment2" onClick={setMessageClickedTrue} backgroundColor="white" border="solid 1px black" color="black">유언장</Button>
                         </Div>
