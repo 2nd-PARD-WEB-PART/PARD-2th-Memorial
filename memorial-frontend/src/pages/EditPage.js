@@ -327,7 +327,7 @@ function EditPage() {
                                 // <P textAlign="center" margin="0">
                                 //     이미지를 등록해주세요
                                 // </P>
-                                <Img width="40%" height="40%" objectFit="contain" src={imageUrl} alt="사진" />
+                                <Img width="100%" height="100%" objectFit="cover" src={userData.imageUrl} alt="사진" />
                             )}
                             {previewSrc && (
                                 <Img width="100%" height="100%" objectFit="cover" src={previewSrc} alt="고인의 사진" />
@@ -362,7 +362,7 @@ function EditPage() {
                                 height="100%"
                                 type="text"
                                 maxLength="15"
-                                placeholder="*버리고 싶은 나의 모습과 나의 이름을 작성해주세요. (예. 손톱 무는 홍길동)"
+                                placeholder={userData.title}
                                 fontSize="18px"
                                 fontWeight="400"
                                 color="#838383"
@@ -393,7 +393,7 @@ function EditPage() {
                                 width="90%"
                                 height="100%"
                                 type="text"
-                                placeholder="*장례식은 3일장으로 치뤄지며 그 이후에는 조문객들에게 댓글을 받을 수 없습니다."
+                                placeholder={userData.startDate}
                                 fontSize="18px"
                                 fontWeight="400"
                                 color="#838383"
@@ -424,7 +424,7 @@ function EditPage() {
                                 width="90%"
                                 height="100%"
                                 maxLength="200"
-                                placeholder="*내가 버리고 싶은 버릇에 대한 스토리와 찾아와준 조문객들에게 전하고 싶은 말을 작성해주세요."
+                                placeholder={userData.content}
                                 fontSize="18px"
                                 fontWeight="400"
                                 color="#838383"
