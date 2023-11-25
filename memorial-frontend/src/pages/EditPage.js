@@ -273,7 +273,8 @@ function EditPage() {
         };
 
         try {
-            const response = await axios.patch('http://172.17.200.74:8080/api/v1/posting/{id}', data, {
+            // 실제 포스팅의 ID를 keyValue로 사용
+            const response = await axios.patch(`http://172.17.200.74:8080/api/v1/posting/${keyValue}`, data, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -283,7 +284,7 @@ function EditPage() {
 
             // 데이터 전송이 성공하면, 파일 업로드를 시작
             console.log(response.data.id);
-            uploadFile(response.data.data.id);
+            uploadFile(response.data.id); // 이 부분도 수정되었습니다.
             navigate('/HomePage');
         } catch (error) {
             console.error(error);
