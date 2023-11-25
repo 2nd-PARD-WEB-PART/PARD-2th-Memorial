@@ -244,7 +244,7 @@ function EditPage() {
         fileData.append('multipartFile', imageSrc);
 
         try {
-            const fileResponse = await axios.post(
+            const fileResponse = await axios.patch(
                 `http://172.17.200.74:8080/api/v1/image?postingId=${postingId}`,
                 fileData,
                 {
@@ -273,7 +273,7 @@ function EditPage() {
         };
 
         try {
-            const response = await axios.post('http://172.17.200.74:8080/api/v1/posting', data, {
+            const response = await axios.patch('http://172.17.200.74:8080/api/v1/posting/{id}', data, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
