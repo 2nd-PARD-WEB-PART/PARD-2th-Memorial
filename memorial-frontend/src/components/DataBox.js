@@ -1,10 +1,10 @@
-import { Div, P } from '../components/box';
+import {Div, P} from '../components/box';
 import axios from 'axios';
 import OverImage from '../assets/over.png';
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
 
-function DataBox({ item, key }) {
+function DataBox({item, key}) {
     const [imageData, setImageData] = useState({});
 
     useEffect(() => {
@@ -37,16 +37,14 @@ function DataBox({ item, key }) {
             border="none"
             flexDirection="column"
             margin="0% 5% 20% 0%"
-            position="relative"
-        >
+            position="relative">
             <Link to="/viewPage" onClick={handleClick}>
                 <div
                     style={{
                         position: "relative",
                         width: "200px",
                         height: "250px"
-                    }}
-                >
+                    }}>
                     {/* 첫 번째 이미지 */}
                     <img
                         src={item.imageUrl}
@@ -55,8 +53,7 @@ function DataBox({ item, key }) {
                         height="250px"
                         style={{
                             borderRadius: "20px"
-                        }}
-                    /> {/* 두 번째 이미지 */}
+                        }}/> {/* 두 번째 이미지 */}
                     <img
                         src={OverImage}
                         alt="오버사진"
@@ -68,12 +65,11 @@ function DataBox({ item, key }) {
                             left: 0,
                             zIndex: 1,
                             opacity: 1
-                        }}
-                    />
+                        }}/>
                 </div>
             </Link>
             <P fontSize="20px" margin="20px 0px">{item.title}</P>
-            <P fontSize="20px">{item.startDate}</P>
+            <P fontSize="20px">{`시작날짜 : ${month}월 ${day}일`}</P>
 
         </Div>
     );

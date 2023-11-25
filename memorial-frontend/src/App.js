@@ -6,6 +6,7 @@ import AddPage from './pages/AddPage';
 import ViewPage from './pages/ViewPage';
 import Login from './pages/Login';
 import MyPage from './pages/MyPage'
+import EditPage from './pages/EditPage'
 import UserProvider from "./contexts/userContext";
 function App() {
 
@@ -18,7 +19,8 @@ function App() {
                     <Route path="/HomePage" element={<HomePage/>}/>
                     <Route path="/AddPage" element={<AddPage />}/>
                     <Route path="/ViewPage" element={<ViewPage/>}/>
-                    <Route path="/MyPage" element={<MyPage/>}/>
+                    <Route path="/MyPage" element={<MyPage />}/>
+                    <Route path="/EditPage" element={<EditPage/>}/>
                 </Route>
             </Routes>
         </UserProvider>
