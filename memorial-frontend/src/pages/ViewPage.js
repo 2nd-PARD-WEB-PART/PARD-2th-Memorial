@@ -4,6 +4,7 @@ import { UserContext } from "../contexts/userContext";
 import axios from "axios";
 import flower from "../assets/flower.png"
 import OverImage from '../assets/over.png';
+import { useLocation } from "react-router-dom";
 
 const Div = styled.div `
 display: ${props => props.display || "flex"};
@@ -55,7 +56,8 @@ const Button = styled.button`
 function ViewPage() {
 
     const funeralName = "꼴초 김현중님 장례식"
-
+    const keyValue = localStorage.getItem("key");
+    console.log(keyValue);
     const [curComment, setCurComment] = useState(null);
     const [messageClicked, setMessageClicked] = useState(false);
     const [commentChanged, setCommentChanged] = useState(false);
@@ -73,7 +75,7 @@ function ViewPage() {
     }
   const getData = async () => {
     try {
-        const data = await axios.get("http://172.17.200.74:8080/api/v1/posting/1");
+        const data = await axios.get(`http://172.17.200.74:8080/api/v1/posting/${keyValue}`);
         setUserData(data.data.data);
         setComments(data.data.data.comment);
     } catch (error) {
@@ -91,7 +93,7 @@ function ViewPage() {
     const newComment = {
         "content": curComment,
     }
-    const response = await axios.post("http://172.17.200.74:8080/api/v1/posting/1/comment", newComment);
+    const response = await axios.post(`http://172.17.200.74:8080/api/v1/posting/${keyValue}/comment`, newComment);
     console.log(response);
     setCommentChanged(!commentChanged);
     setCurComment('');
@@ -190,8 +192,8 @@ const setMessageClickedTrue = async (e) => {
                     <Div width="70%" flexDirection="column" alignItems="end">
                         <Div width="80%" backgroundColor="#F0F0F0" borderRadius="20px" flexDirection="column" >
                             <Div height="10%" width="95%" backgroundColor="#F0F0F0" color="black" justifyContent="start" borderBottom="1px solid black" >
-                                <Div width="20%" fontSize="12px" backgroundColor="#F0F0F0">조문 종료 기간</Div>
-                                <Div width="20%" fontSize="12px" backgroundColor="#F0F0F0">20:20:20</Div>
+                                <Div width="20%" fontSize="15px" backgroundColor="#F0F0F0" >조문 종료 기간</Div>
+                                <Div width="20%" fontSize="15px" backgroundColor="#F0F0F0">{userData.startDate}</Div>
                             </Div>
                             <Div flexDirection="column" height="80%" width="95%" backgroundColor="#F0F0F0" overflow="scroll" justifyContent="start" borderBottom="1px solid black" >
                                 
@@ -212,7 +214,7 @@ const setMessageClickedTrue = async (e) => {
                                     <Img src={flower} width="30px"/>
                                 </Div>
                                 <Div width="75%" justifyContent="start" alignItems="center" height="100%" backgroundColor="#F0F0F0">
-                                        <Input type="text" height="100%" placeholder="댓글 달기.." name="inputComment" value={curComment} backgroundColor="#F0F0F0" onChange={handleCommentChange} />
+                                        <Input type="text" height="90%" placeholder="댓글 달기.." name="inputComment" value={curComment} backgroundColor="#F0F0F0" onChange={handleCommentChange} />
                                 </Div>
                                 <Div width="15%" justifyContent="end" alignItems="center" backgroundColor="#F0F0F0" >
                                     <Button name="comment2" onClick={handleCommentUpload} >댓글 작성</Button>
