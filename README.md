@@ -12,10 +12,15 @@
 
 ### <a href = "https://github.com/2nd-PARD-WEB-PART/PARD-2th-Memorial/blob/main/memorial-frontend/src/pages/Login.js">Login 기능</a>
 
+: 구글 파이어베이스를 연동하여 기존 스프링부트 서버와는 별개로 Google 계정으로 로그인할 수 있다. 또한, 로그인 세션을 로컬스토지와 함께 사용하여 로그인 상태를 유지할 수 있다.
+
 ### <a href = "https://github.com/2nd-PARD-WEB-PART/PARD-2th-Memorial/blob/main/memorial-frontend/src/pages/AddPage.js">장례식 추가 및 조회 기능</a>
+
+: Axios 기능을 활용하여 백엔드에서 지원하는 API를 활용하여 데이터를 추가하고 조회할 수 있다. 또한, 수정 및 삭제에 대해서고 고려 중이다.
 
 ### <a href = "https://github.com/2nd-PARD-WEB-PART/PARD-2th-Memorial/blob/main/memorial-frontend/src/pages/ViewPage.js">댓글 기능</a>
 
+: 등록된 장례식 (하나의 게시물)에 여러 댓글을 달 수 있으며, 로그인이 필요하지 않다.
 <br>
 
 ## 팀원 정보
