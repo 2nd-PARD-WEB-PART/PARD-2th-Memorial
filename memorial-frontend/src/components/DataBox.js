@@ -16,7 +16,10 @@ function DataBox({item, key}) {
             })
             .catch((error) => console.log("error: " + error));
     }, [item.id]);
-
+    const startDate = new Date(item.startDate);
+    // 월과 일 추출
+    const month = startDate.getMonth() + 1; // getMonth()는 0부터 시작하므로 +1 해줍니다.
+    const day = startDate.getDate();
     return (
         <Div width="100%" padding="5% 15% 5% 15%" backgroundColor="none" height="400px" border="none" flexDirection="column" margin="0% 5% 20% 0%" position="relative"
             // 부모 요소를 relative로 설정합니다.
@@ -52,7 +55,7 @@ function DataBox({item, key}) {
                 </div>
             </Link>
             <P fontSize="20px" margin="20px 0px">{item.title}</P>
-            <P fontSize="20px">{item.content}</P>
+            <P fontSize="20px">{item.startDate}</P>
 
         </Div>
     );
