@@ -16,8 +16,6 @@
 
 ### <a href = "https://github.com/2nd-PARD-WEB-PART/PARD-2th-Memorial/blob/main/memorial-frontend/src/pages/ViewPage.js">댓글 기능</a>
 
-### <a href = "https://github.com/2nd-PARD-WEB-PART/PARD-2th-Memorial/blob/main/memorial-frontend/src/pages/ViewPage.js">댓글 기능</a>
-
 <br>
 
 ## 팀원 정보
