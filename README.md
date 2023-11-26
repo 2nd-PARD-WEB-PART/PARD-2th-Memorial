@@ -27,7 +27,7 @@
 
 ### 개발자
 
-| 종류 | <div style="width:15vw">내용</div> | <div style="width:15vw">내용</div> | <div style="width:15vw">내용</div> | <div style="width:15vw">내용</div> |
+| 종류 | <div style="width:15vw">멤버</div> | <div style="width:15vw">멤버</div> | <div style="width:15vw">멤버</div> | <div style="width:15vw">멤버</div> |
 | :--: | :--------------------------------: | :--------------------------------: | :--------------------------------: | :--------------------------------: |
 | Name |               김광일               |               김현중               |               박주영               |               서하민               |
 | PART |                WEB                 |                WEB                 |                WEB                 |               SERVER               |
@@ -35,10 +35,10 @@
 
 ### 디자이너 & 기획자
 
-| 종류 | <div style="width:15vw">내용</div> | <div style="width:15vw">내용</div> | <div style="width:15vw">내용</div> |
+| 종류 | <div style="width:15vw">멤버</div> | <div style="width:15vw">멤버</div> | <div style="width:15vw">멤버</div> |
 | :--: | :--------------------------------: | :--------------------------------: | :--------------------------------: |
 | Name |               김현지               |               이하영               |               전예람               |
-| PART |                WEB                 |                WEB                 |                WEB                 |
+| PART |               DESIGN               |               DESIGN               |                 PM                 |
 | Age  |                 24                 |                 22                 |                 28                 |
 
 <br>
